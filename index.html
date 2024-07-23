@@ -3,28 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gerador de Relatório de Vida</title>
-    <link href="https://fonts.cdnfonts.com/css/press-start-2p" rel="stylesheet">
+    <title>Relatório de Vida</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <h1>Relatório da Vida</h1>
+        <h1>Gerador de Relatório de Vida</h1>
         <form id="dataForm">
             <label for="name">Nome:</label>
             <input type="text" id="name" required>
+            
             <label for="age">Idade:</label>
             <input type="number" id="age" required>
+            
             <label for="photo">Foto:</label>
             <input type="file" id="photo" accept="image/*" required>
+            
             <button type="submit">Gerar Relatório</button>
         </form>
-        <button id="downloadReport" class="hidden">Baixar Relatório</button>
+        
         <div id="report" class="hidden">
             <div id="reportContent"></div>
         </div>
+        
+        <button id="downloadReport" class="hidden">Baixar Relatório</button>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.7/dist/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

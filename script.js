@@ -1,4 +1,3 @@
-// script.js
 document.getElementById('dataForm').addEventListener('submit', function(event) {
     event.preventDefault();
     
@@ -55,7 +54,6 @@ function generateRandomFacts(name, age) {
 
     const facts = [
         `Você já viveu aproximadamente ${age * 365 * 24 * 60} minutos.`,
-        `Seus amigos provavelmente te chamam de ${name.charAt(0).toUpperCase() + name.slice(1)}.`,
         `Você nasceu no ano de ${new Date().getFullYear() - age}.`,
         `Se você andar 5 km por dia, já andou cerca de ${age * 365 * 5} km na vida.`,
         `Você já engoliu aproximadamente ${totalSpidersSwallowed} aranhas em sua vida.`,
@@ -65,14 +63,13 @@ function generateRandomFacts(name, age) {
         `Você já foi feito de otário ${randomTimes(0, 50)} vezes.`,
         `Já quebraram seu coração ${randomTimes(0, 50)} vezes.`,
         `Você já falou palavrão ${randomTimes(200, 200000)} vezes.`
-        `Você já desistiu de fazer ${randomTimes(100, 5000)} coisas na vida.`
     ];
 
-    return facts.map(fact => `<p>${fact}</p>`).join('');
+    return facts.map((fact, index) => `<p>${index + 1}. ${fact}</p>`).join('<br>');
 }
 
 function downloadReportAsImage() {
-    html2canvas(document.querySelector("#reportContent")).then(canvas => {
+    html2canvas(document.querySelector("#report")).then(canvas => {
         const link = document.createElement('a');
         link.download = 'relatorio-de-vida.png';
         link.href = canvas.toDataURL("image/png");
