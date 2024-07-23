@@ -1,9 +1,18 @@
 @import url('https://fonts.cdnfonts.com/css/press-start-2p');
 
+:root {
+    --cor-primaria: #173B45;
+    --cor-secundaria: #B43F3F;
+    --cor-terciaria: #FF8225;
+    --cor-quartenaria: #F8EDED;
+    --cor-texto: #333;
+}
+
+
 body {
     font-family: 'Press Start 2P', cursive;
-    background-color: #C8CFA0;
-    color: #333;
+    background-color: var(--cor-primaria);
+    color: var(--cor-quartenaria);
     margin: 0;
     padding: 0;
     display: flex;
@@ -14,17 +23,17 @@ body {
 }
 
 .container {
-    background-color: #FFF;
+    background-color: var(--cor-secundaria);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 90%;
-    max-width: 500px;
+    max-width: 31.25rem;
     position: relative;
 }
 
 h1 {
-    color: #78ABA8;
+    color: var(--cor-quartenaria);
 }
 
 form {
@@ -40,24 +49,21 @@ label {
 input[type="text"],
 input[type="number"],
 input[type="file"] {
-    padding: 10px;
-    border: 1px solid #ccc;
+    padding: 0.625rem;
+    border: 1px solid var(--cor-quartenaria);
     border-radius: 5px;
     font-family: 'Press Start 2P', cursive;
 }
 
 button {
-    padding: 10px;
-    background-color: #78ABA8;
-    color: white;
+    padding: 1rem;
+    background-color: var(--cor-secundaria);
+    box-shadow: 8px 5px 5px 7px rgba(0, 0, 0, 0.1);
+    color: var(--cor-quartenaria);
     border: none;
     border-radius: 5px;
     cursor: pointer;
     font-family: 'Press Start 2P', cursive;
-}
-
-button:hover {
-    background-color: #66A0A0;
 }
 
 .hidden {
@@ -65,34 +71,43 @@ button:hover {
 }
 
 #report {
-    margin-top: 20px;
+    margin-top: 5px;
     text-align: left;
-    background-color: #f5f5dc; /* Textura de papel */
-    padding: 20px;
-    border-radius: 10px;
+    color: var(--cor-texto);
+    position: relative;
+    background-color: #FBAB7E;
+    background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
+    
+    height: auto;
+    width: 25rem;
+    padding: 1.25rem;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    font-size: 10px; /* Tamanho de letra ajustado */
-}
-
-#report img {
-    max-width: 100px;
-    max-height: 100px;
-    border-radius: 50%;
-    position: absolute;
-    top: -50px;
-    left: calc(50% - 50px);
-    border: 2px solid #78ABA8;
 }
 
 #reportContent {
-    padding: 50px 20px 20px; /* Adiciona espaçamento para a imagem */
+    font-size: 0.625rem;
+    font-weight: 600;
+    /* Tamanho de letra ajustado */
+    line-height: 1.2;
+    margin-top: 50px;
+    /* Ajuste para posicionar o conteúdo corretamente */
+}
+
+#report img {
+    max-width: 6.125rem;
+    max-height: 6.125rem;
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto 10px;
+    border: 2px solid #78ABA8;
 }
 
 p {
-    margin: 10px 0;
+    margin: 5px 0;
 }
 
 h3 {
     margin-top: 20px;
     margin-bottom: 10px;
+    font-size: 12px;
 }
