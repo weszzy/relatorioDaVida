@@ -18,17 +18,20 @@ function handleFormSubmit() {
             fetch('facts.json')
                 .then(response => response.json())
                 .then(data => {
-                    generateReport(name, birthYear, e.target.result, data.facts);
+                    generateReport(name, birthYear, e.target.result, data);
                 });
         };
         reader.readAsDataURL(photo);
     }
 }
 
-function generateReport(name, birthYear, photoSrc, facts) {
+function generateReport(name, birthYear, photoSrc, data) {
     const currentDate = new Date();
     const age = currentDate.getFullYear() - birthYear;
     const livedDays = calculateLivedDays(currentDate, birthYear);
+
+    // Gerar avaliação musical
+    const musicalTaste = generateMusicalTasteRating(data.musicalTasteRatings);
 
     const reportContent = `
         <div class="report-header">
@@ -39,7 +42,7 @@ function generateReport(name, birthYear, photoSrc, facts) {
             <img src="${photoSrc}" alt="Foto de ${name}">
         </div>
         <h3>Fatos Aleatórios:</h3>
-        ${generateRandomFacts(facts, age, livedDays)}
+        ${generateRandomFacts(data.facts, age, livedDays, musicalTaste)}
     `;
 
     displayReport(reportContent);
@@ -50,7 +53,7 @@ function calculateLivedDays(currentDate, birthYear) {
     return Math.floor((currentDate - birthDate) / (1000 * 60 * 60 * 24));
 }
 
-function generateRandomFacts(facts, age, livedDays) {
+function generateRandomFacts(facts, age, livedDays, musicalTaste) {
     const randomTimes = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
 
     const factValues = {
@@ -61,7 +64,8 @@ function generateRandomFacts(facts, age, livedDays) {
         hoursSlept: Math.floor(age * 365 * 8),
         timesFooled: randomTimes(0, 50),
         timesHeartBroken: randomTimes(0, 50),
-        timesCursed: randomTimes(200, 200000)
+        timesCursed: randomTimes(200, 200000),
+        musicalTaste: musicalTaste
     };
 
     return facts.map((fact, index) => {
@@ -70,6 +74,11 @@ function generateRandomFacts(facts, age, livedDays) {
         }
         return `<p>${index + 1}. ${fact}</p>`;
     }).join('<br>');
+}
+
+function generateMusicalTasteRating(ratings) {
+    const randomIndex = Math.floor(Math.random() * ratings.length);
+    return ratings[randomIndex];
 }
 
 function displayReport(content) {

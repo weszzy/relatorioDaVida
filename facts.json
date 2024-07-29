@@ -7,6 +7,16 @@
         "Tu já dormiu cerca de {hoursSlept} horas! *considerando uma média de 8 horas de sono por noite.*",
         "Tu já foi feito de otário {timesFooled} vezes.",
         "Já quebraram teu coração {timesHeartBroken} vezes.",
-        "Tu já falou palavrão {timesCursed} vezes."
+        "Tu já falou palavrão {timesCursed} vezes.",
+        "Com base nas músicas que tu escuta, teu gosto musical é: {musicalTaste}"
+    ],
+    "musicalTasteRatings": [
+        "bem ruinzinho",
+        "até que bom",
+        "bom demais, tá de parabéns",
+        "horrível... melhore viu",
+        "ótimo mas da uma segurada...",
+        "sem palavras...",
+        "paia"
     ]
 }
