@@ -88,6 +88,7 @@ button {
 }
 
 #report {
+    position: relative;
     margin-top: 2rem;
     text-align: left;
     color: var(--cor-quartenaria);
@@ -103,7 +104,20 @@ button {
     font-size: 0.525rem;
     font-weight: 200;
     line-height: 1.2;
-    margin-top: 2rem;
+    margin-bottom: 2.5rem;
+    /* Deixe espaço para a marca d'água */
+}
+
+#watermark {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.5);
+    /* Opacidade baixa */
+    pointer-events: none;
+    /* Não interfere com cliques */
+    font-family: var(--font-family);
 }
 
 #report img {
@@ -151,6 +165,12 @@ h3 {
     #reportContent {
         font-size: 0.75rem;
     }
+
+    #watermark {
+        font-size: 0.65rem;
+        bottom: 0.5rem;
+        right: 0.5rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -179,5 +199,11 @@ h3 {
         margin-left: 0;
         max-width: 5rem;
         max-height: 5rem;
+    }
+
+    #watermark {
+        font-size: 0.55rem;
+        bottom: 0.5rem;
+        right: 0.5rem;
     }
 }
