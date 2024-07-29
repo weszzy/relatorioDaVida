@@ -20,9 +20,10 @@ Um projeto de app simples que gera um relatório pessoal baseado nas informaçõ
 <img align="center" alt="css" src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" /> 
 <img align="center" alt="html" src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" />
 </div><br/>
+
 ## Uso
-1. Preencha o formulário com o nome, ano de nascimento e selecione uma foto de sua preferência
-2. Clique em "Gerar Relatório" para criar o relatório com base nas informações fornecidas
+1. Preencha o formulário com o nome, ano de nascimento e selecione uma foto de sua preferência <br>
+2. Clique em "Gerar Relatório" para criar o relatório com base nas informações fornecidas <br>
 3. Após o relatório ser gerado, clique em "Baixar Relatório" para salvar a imagem caso queira
 
 
