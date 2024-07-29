@@ -43,9 +43,8 @@ Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](./LI
 ## Screenshots
 
 <div style="display: inline">
-<img align="center" alt="página inicial" src="https://i.imgur.com/bkA9kr8.png" width="700rem" />
-<img align="center" alt="resultado" src="https://i.imgur.com/s2EcJzF.png" width="500rem" height="532rem" /> 
-<img align="center" alt="png baixado" src="https://i.imgur.com/9UvaDCB.png" width="400rem" />
+<img align="center" alt="página inicial" src="https://i.imgur.com/bkA9kr8.png" width="400rem" />
+<img align="center" alt="png baixado" src="https://i.imgur.com/9UvaDCB.png" height="300rem" />
 </div>
 
 
