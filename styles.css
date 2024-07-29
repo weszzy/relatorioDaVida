@@ -91,8 +91,8 @@ button {
     margin-top: 2rem;
     text-align: left;
     color: var(--cor-quartenaria);
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.15) 0%, rgba(0, 0, 0, 0.15) 100%), 
-                radial-gradient(at top center, rgba(255, 255, 255, 0.40) 0%, rgba(0, 0, 0, 0.40) 120%) #989898;
+    background: rgb(81, 111, 120);
+    background: linear-gradient(90deg, rgba(81, 111, 120, 1) 0%, rgba(23, 59, 69, 1) 100%);
     background-blend-mode: multiply, multiply;
     padding: 1.25rem;
     box-shadow: var(--box-shadow);
