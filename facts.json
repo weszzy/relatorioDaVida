@@ -1,0 +1,12 @@
+{
+    "facts": [
+        "Tu já viveu aproximadamente {livedDays} dias.",
+        "Se tu andou pelo menos 5 km por dia até agora, já deve ter andado cerca de {distanceWalked} km na vida.",
+        "Tu já engoliu aproximadamente {spidersSwallowed} aranhas na sua vida.",
+        "Teus batimentos cardíacos já ultrapassaram {heartBeats} batidas! *considerando uma média de 70 batidas por minuto.*",
+        "Tu já dormiu cerca de {hoursSlept} horas! *considerando uma média de 8 horas de sono por noite.*",
+        "Você já foi feito de otário {timesFooled} vezes.",
+        "Já quebraram seu coração {timesHeartBroken} vezes.",
+        "Você já falou palavrão {timesCursed} vezes."
+    ]
+}
