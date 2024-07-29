@@ -1,9 +1,9 @@
-document.getElementById('dataForm').addEventListener('submit', function(event) {
+document.getElementById('dataForm').addEventListener('submit', function (event) {
     event.preventDefault();
     handleFormSubmit();
 });
 
-document.getElementById('downloadReport').addEventListener('click', function() {
+document.getElementById('downloadReport').addEventListener('click', function () {
     downloadReportAsImage();
 });
 
@@ -14,14 +14,18 @@ function handleFormSubmit() {
 
     if (photo) {
         const reader = new FileReader();
-        reader.onload = function(e) {
-            generateReport(name, birthYear, e.target.result);
+        reader.onload = function (e) {
+            fetch('facts.json')
+                .then(response => response.json())
+                .then(data => {
+                    generateReport(name, birthYear, e.target.result, data.facts);
+                });
         };
         reader.readAsDataURL(photo);
     }
 }
 
-function generateReport(name, birthYear, photoSrc) {
+function generateReport(name, birthYear, photoSrc, facts) {
     const currentDate = new Date();
     const age = currentDate.getFullYear() - birthYear;
     const livedDays = calculateLivedDays(currentDate, birthYear);
@@ -35,7 +39,7 @@ function generateReport(name, birthYear, photoSrc) {
             <img src="${photoSrc}" alt="Foto de ${name}">
         </div>
         <h3>Fatos Aleatórios:</h3>
-        ${generateRandomFacts(name, age, livedDays)}
+        ${generateRandomFacts(facts, age, livedDays)}
     `;
 
     displayReport(reportContent);
@@ -46,21 +50,26 @@ function calculateLivedDays(currentDate, birthYear) {
     return Math.floor((currentDate - birthDate) / (1000 * 60 * 60 * 24));
 }
 
-function generateRandomFacts(name, age, livedDays) {
+function generateRandomFacts(facts, age, livedDays) {
     const randomTimes = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
 
-    const facts = [
-        `Tu já viveu aproximadamente ${livedDays} dias.`,
-        `Se tu andou pelo menos 5 km por dia até agora, já deve ter andado cerca de ${age * 365 * 5} km na vida.`,
-        `Tu já engoliu aproximadamente ${age * 8} aranhas na sua vida.`,
-        `Teus batimentos cardíacos já ultrapassaram ${age * 365 * 24 * 60 * 70} batidas! *considerando uma média de 70 batidas por minuto.*`,
-        `Tu já dormiu cerca de ${Math.floor(age * 365 * 8)} horas! *considerando uma média de 8 horas de sono por noite.*`,
-        `Você já foi feito de otário ${randomTimes(0, 50)} vezes.`,
-        `Já quebraram seu coração ${randomTimes(0, 50)} vezes.`,
-        `Você já falou palavrão ${randomTimes(200, 200000)} vezes.`
-    ];
+    const factValues = {
+        livedDays: livedDays,
+        distanceWalked: age * 365 * 5,
+        spidersSwallowed: age * 8,
+        heartBeats: age * 365 * 24 * 60 * 70,
+        hoursSlept: Math.floor(age * 365 * 8),
+        timesFooled: randomTimes(0, 50),
+        timesHeartBroken: randomTimes(0, 50),
+        timesCursed: randomTimes(200, 200000)
+    };
 
-    return facts.map((fact, index) => `<p>${index + 1}. ${fact}</p>`).join('<br>');
+    return facts.map((fact, index) => {
+        for (const key in factValues) {
+            fact = fact.replace(`{${key}}`, factValues[key]);
+        }
+        return `<p>${index + 1}. ${fact}</p>`;
+    }).join('<br>');
 }
 
 function displayReport(content) {
