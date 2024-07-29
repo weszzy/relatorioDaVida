@@ -81,10 +81,17 @@ function displayReport(content) {
 }
 
 function downloadReportAsImage() {
-    html2canvas(document.querySelector("#report")).then(canvas => {
+    html2canvas(document.querySelector("#report"), {
+        useCORS: true,
+        backgroundColor: null,
+        scale: 2,
+        logging: true,
+    }).then(canvas => {
         const link = document.createElement('a');
         link.download = 'relatorio-de-vida.png';
         link.href = canvas.toDataURL("image/png");
         link.click();
+    }).catch(err => {
+        console.error("Erro ao gerar imagem:", err);
     });
 }
